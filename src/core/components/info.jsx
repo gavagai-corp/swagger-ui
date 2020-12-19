@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import ImPropTypes from "react-immutable-proptypes"
 import { sanitizeUrl } from "core/utils"
 import { buildUrl } from "core/utils/url"
+import HeaderBackground from "./../../img/header_background.jpg"
 
 
 export class InfoBasePath extends React.Component {
@@ -66,7 +67,7 @@ class License extends React.Component {
     let { license, getComponent, selectedServer, url: specUrl } = this.props
 
     const Link = getComponent("Link")
-    let name = license.get("name") || "License"  
+    let name = license.get("name") || "License"
     let url = buildUrl(license.get("url"), specUrl, {selectedServer})
 
     return (
@@ -109,40 +110,40 @@ export default class Info extends React.Component {
   }
 
   render() {
-    let { info, url, host, basePath, getComponent, externalDocs, selectedServer, url: specUrl } = this.props
-    let version = info.get("version")
+    let { info, url, getComponent, externalDocs, selectedServer, url: specUrl } = this.props
     let description = info.get("description")
     let title = info.get("title")
-    let termsOfServiceUrl = buildUrl(info.get("termsOfService"), specUrl, {selectedServer})
+    let termsOfServiceUrl = buildUrl(info.get("termsOfService"), specUrl, { selectedServer })
     let contact = info.get("contact")
     let license = info.get("license")
     let rawExternalDocsUrl = externalDocs && externalDocs.get("url")
-    let externalDocsUrl = buildUrl(rawExternalDocsUrl, specUrl, {selectedServer})
+    let externalDocsUrl = buildUrl(rawExternalDocsUrl, specUrl, { selectedServer })
     let externalDocsDescription = externalDocs && externalDocs.get("description")
 
     const Markdown = getComponent("Markdown", true)
     const Link = getComponent("Link")
-    const VersionStamp = getComponent("VersionStamp")
-    const InfoUrl = getComponent("InfoUrl")
-    const InfoBasePath = getComponent("InfoBasePath")
+    const Row = getComponent("Row")
 
     return (
       <div className="info">
-        <hgroup className="main">
-          <h2 className="title" >{ title }
-            { version && <VersionStamp version={version}></VersionStamp> }
-          </h2>
-          { host || basePath ? <InfoBasePath host={ host } basePath={ basePath } /> : null }
-          { url && <InfoUrl getComponent={getComponent} url={url} /> }
+        <hgroup className="main" style={{
+          backgroundImage: `url(${HeaderBackground})`
+        }}>
+          <div className="header-wrapper">
+            <h2 className="title">{title}
+            </h2></div>
         </hgroup>
-
-        <div className="description">
-          <Markdown source={ description } />
-        </div>
+        <Row>
+          <div className="description">
+            <Markdown source={description} />
+          </div>
+        </Row>
 
         {
           termsOfServiceUrl && <div className="info__tos">
-            <Link target="_blank" href={ sanitizeUrl(termsOfServiceUrl) }>Terms of service</Link>
+            <Row>
+              <Link target="_blank" href={ sanitizeUrl(termsOfServiceUrl) }>Terms of service</Link>
+            </Row>
           </div>
         }
 

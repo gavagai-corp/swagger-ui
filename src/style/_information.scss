@@ -1,9 +1,9 @@
 .info
 {
-    margin: 50px 0;
+    margin: 0;
 
     &.failed-config
-    { 
+    {
         max-width: 880px;
         margin-left: auto;
         margin-right: auto;
@@ -12,44 +12,42 @@
 
     hgroup.main
     {
-        margin: 0 0 20px 0;
+        margin: 0 0 60px 0;
+        background-repeat: no-repeat;
+        background-size: cover;
         a
         {
             font-size: 12px;
         }
     }
-    pre 
+    pre
     {
-        font-size: 14px;
+        font-size: 16px;
     }
     p, li, table
     {
-        font-size: 14px;
+        font-size: 16px;
 
-        @include text_body();
+        @include info_body();
     }
 
     h1, h2, h3, h4, h5
     {
-        @include text_body();
+        @include info_body();
     }
 
     a
     {
-        font-size: 14px;
+        font-size: 16px;
 
         transition: all .4s;
 
-        @include text_body($info-link-font-color);
+        @include info_body($info-link-font-color);
 
         &:hover
         {
             color: darken($info-link-font-color-hover, 15%);
         }
-    }
-    > div
-    {
-        margin: 0 0 5px 0;
     }
 
     .base-url
@@ -62,13 +60,23 @@
         @include text_code();
     }
 
+    .header-wrapper {
+      height: 200px;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2em 10px;
+    }
     .title
     {
-        font-size: 36px;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 48px;
+        text-align: center;
+        padding: 40px;
 
         margin: 0;
 
-        @include text_body();
+        @include info_header($white);
 
         small
         {
@@ -86,7 +94,7 @@
 
             border-radius: 57px;
             background: $info-title-small-background-color;
-            
+
             &.version-stamp
             {
                 background-color: #89bf04;

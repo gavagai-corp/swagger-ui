@@ -1,6 +1,9 @@
 .topbar
 {
     padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     background-color: $topbar-background-color;
     .topbar-wrapper
@@ -92,5 +95,18 @@
 
             @include text_headline($topbar-download-url-button-font-color);
         }
+
+      .tell-me-more-button
+      {
+        @include text_headline($topbar-download-url-button-font-color);
+        background: $topbar-download-url-button-background-color;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 35px;
+        text-transform: none;
+        padding: 1px 15px;
+        display: block;
+        border: none;
+      }
     }
 }

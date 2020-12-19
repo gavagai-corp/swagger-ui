@@ -1,9 +1,9 @@
 .wrapper
 {
     width: 100%;
-    max-width: 1460px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
     box-sizing: border-box;
 }
 
@@ -162,7 +162,6 @@
     margin: 0 0 15px 0;
 
     border: 1px solid $opblock-border-color;
-    border-radius: 4px;
     box-shadow: 0 0 3px rgba($opblock-box-shadow-color,.19);
 
     .tab-header
@@ -272,7 +271,6 @@
 
         text-align: center;
 
-        border-radius: 3px;
         background: $opblock-summary-method-background-color;
         text-shadow: 0 1px 0 rgba($opblock-summary-method-text-shadow-color,.1);
 
@@ -693,8 +691,8 @@
 
 .scheme-container
 {
-    margin: 0 0 20px 0;
     padding: 30px 0;
+    margin: 0 auto;
 
     background: $scheme-container-background-color;
     box-shadow: 0 1px 2px 0 rgba($scheme-container-box-shadow-color,.15);

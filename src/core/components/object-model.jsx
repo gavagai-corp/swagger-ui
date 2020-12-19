@@ -66,7 +66,6 @@ export default class ObjectModel extends Component {
     const not = specSelectors.isOAS3() ? schema.get("not") : null
 
     const titleEl = title && <span className="model-title">
-      { isRef && schema.get("$$ref") && <span className="model-hint">{ schema.get("$$ref") }</span> }
       <span className="model-title__text">{ title }</span>
     </span>
 
@@ -103,7 +102,7 @@ export default class ObjectModel extends Component {
                       true
                     </td>
                   </tr>
-               
+
               }
               {
                 !(properties && properties.size) ? null : properties.entrySeq().filter(

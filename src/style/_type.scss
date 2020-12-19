@@ -1,21 +1,33 @@
+@mixin info_header($color: $text-body-default-font-color)
+{
+  font-family: TSTAR, "Courier New", Courier, monospace;
+  color: $color;
+}
+
+@mixin info_body($color: $text-body-default-font-color)
+{
+  font-family: Georgia;
+  color: $color;
+}
+
 @mixin text_body($color: $text-body-default-font-color)
 {
-    font-family: sans-serif;
+    font-family: TSTAR, "Courier New", Courier, monospace;
 
     color: $color;
 }
 
 @mixin text_code($color: $text-code-default-font-color)
 {
-    font-family: monospace;
-    font-weight: 600;
+    font-family: TSTAR, "Courier New", Courier, monospace;
+    font-weight: 400;
 
     color: $color;
 }
 
 @mixin text_headline($color: $text-headline-default-font-color)
 {
-    font-family: sans-serif;
+    font-family: "TSTAR","Courier New",Courier,monospace;
 
     color: $color;
 }

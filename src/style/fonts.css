@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'TSTAR';
+    src: url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-regularweb.eot');
+    src: url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-regularweb.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-regularweb.woff') format('woff'),
+         url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-regularweb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TSTAR';
+    src: url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-boldweb.eot.eot');
+    src: url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-boldweb.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-boldweb.woff') format('woff'),
+         url('https://s3-eu-west-1.amazonaws.com/gavagai-font-files/tstar_tw_pro-boldweb.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

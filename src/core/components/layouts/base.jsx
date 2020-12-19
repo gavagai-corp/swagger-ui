@@ -19,7 +19,6 @@ export default class BaseLayout extends React.Component {
     let InfoContainer = getComponent("InfoContainer", true)
     let VersionPragmaFilter = getComponent("VersionPragmaFilter")
     let Operations = getComponent("operations", true)
-    let Models = getComponent("Models", true)
     let Row = getComponent("Row")
     let Col = getComponent("Col")
     let Errors = getComponent("errors", true)
@@ -36,7 +35,7 @@ export default class BaseLayout extends React.Component {
     const loadingStatus = specSelectors.loadingStatus()
 
     let loadingMessage = null
-  
+
     if(loadingStatus === "loading") {
       loadingMessage = <div className="info">
         <div className="loading-container">
@@ -80,7 +79,7 @@ export default class BaseLayout extends React.Component {
     const servers = specSelectors.servers()
     const schemes = specSelectors.schemes()
 
-    const hasServers = servers && servers.size
+    const hasServers = servers && servers.size && servers.size > 1
     const hasSchemes = schemes && schemes.size
     const hasSecurityDefinitions = !!specSelectors.securityDefinitions()
 
@@ -90,20 +89,20 @@ export default class BaseLayout extends React.Component {
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors/>}>
             <Errors/>
-            <Row className="information-container">
+            <div className="information-container">
               <Col mobile={12}>
                 <InfoContainer/>
               </Col>
-            </Row>
+            </div>
 
             {hasServers || hasSchemes || hasSecurityDefinitions ? (
-              <div className="scheme-container">
+              <Row className="scheme-container">
                 <Col className="schemes wrapper" mobile={12}>
                   {hasServers ? (<ServersContainer />) : null}
                   {hasSchemes ? (<SchemesContainer />) : null}
                   {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
                 </Col>
-              </div>
+              </Row>
             ) : null}
 
             <FilterContainer/>
@@ -111,11 +110,6 @@ export default class BaseLayout extends React.Component {
             <Row>
               <Col mobile={12} desktop={12} >
                 <Operations/>
-              </Col>
-            </Row>
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Models/>
               </Col>
             </Row>
           </VersionPragmaFilter>

@@ -18,6 +18,11 @@ flavors/**/dist/*
 /lib
 /es
 dist/log*
+dist/*.LICENSE.txt
+dist/*.js
+dist/*.js.map
+dist/*.css
+dist/*.css.map
 
 # Cypress
 test/e2e-cypress/screenshots

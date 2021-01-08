@@ -19,7 +19,7 @@ Script name | Description
 `build-bundle` | Build `swagger-ui-bundle.js` only (commonJS). 
 `build-core` | Build `swagger-ui.(js\|css)` only (commonJS).
 `build-standalone` | Build `swagger-ui-standalone-preset.js` only (commonJS).
-`build-stylesheets` | Build `swagger-ui.css` only.
+`build-stylesheets` | Build `swagger-ui.css` and `fonts.css`.
 `build:es:bundle` | Build `swagger-ui-es-bundle.js` only (es2015).
 `build:es:bundle:core` | Build `swagger-ui-es-bundle-core.js` only (es2015).
 

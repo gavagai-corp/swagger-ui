@@ -10,6 +10,7 @@
 !dist/swagger-ui-es-bundle.js.map
 !dist/swagger-ui-es-bundle-core.js
 !dist/swagger-ui-es-bundle-core.js.map
+!dist/fonts.css
 !dist/swagger-ui.css
 !dist/swagger-ui.css.map
 !dist/oauth2-redirect.html

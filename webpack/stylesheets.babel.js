@@ -14,10 +14,23 @@ export default {
 
   entry: {
     "swagger-ui": "./src/style/main.scss",
+    "fonts": "./src/style/fonts.css"
   },
 
   module: {
     rules: [
+      {
+        test: [/\.(css)(\?.*)?$/],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: { sourceMap: true },
+          }
+      ]
+      },
       {
         test: [/\.(scss)(\?.*)?$/],
         use: [
@@ -70,18 +83,5 @@ export default {
   output: {
     path: path.join(__dirname, "../", "dist"),
     publicPath: "/dist",
-  },
-
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: "styles",
-          test: /\.css$/,
-          chunks: "all",
-          enforce: true,
-        },
-      },
-    },
   },
 }

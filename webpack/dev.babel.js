@@ -24,6 +24,7 @@ const devConfig = configBuilder(
         "./src/standalone/index.js",
       ],
       "swagger-ui": "./src/style/main.scss",
+      "fonts": "./src/style/fonts.css",
     },
 
     performance: {

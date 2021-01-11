@@ -39,9 +39,9 @@ table
             @include text_code();
         }
 
-        .header-example 
+        .header-example
         {
-            color: #999; 
+            color: #999;
             font-style: italic;
         }
     }
@@ -179,6 +179,7 @@ table
 
 .response-col_description {
     width: 99%; // forces other columns to shrink to their content widths
+    max-width: 814px;
 }
 
 .response-col_links {

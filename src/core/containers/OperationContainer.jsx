@@ -59,10 +59,9 @@ export default class OperationContainer extends PureComponent {
     const operationId = op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), props.path, props.method) || op.get("id")
     const isShownKey = ["operations", props.tag, operationId]
     const isDeepLinkingEnabled = deepLinking && deepLinking !== "false"
-    const security = op.getIn(["operation", "security"]) || props.specSelectors.security()
-    const isAuthorized = props.authSelectors.isAuthorized(security)
-    const allowTryItOut = isAuthorized && supportedSubmitMethods.indexOf(props.method) >= 0 && (typeof props.allowTryItOut === "undefined" ?
+    const allowTryItOut = supportedSubmitMethods.indexOf(props.method) >= 0 && (typeof props.allowTryItOut === "undefined" ?
       props.specSelectors.allowTryItOutFor(props.path, props.method) : props.allowTryItOut)
+    const security = op.getIn(["operation", "security"]) || props.specSelectors.security()
 
     return {
       operationId,
@@ -72,7 +71,7 @@ export default class OperationContainer extends PureComponent {
       displayRequestDuration,
       allowTryItOut,
       security,
-      isAuthorized,
+      isAuthorized: props.authSelectors.isAuthorized(security),
       isShown: layoutSelectors.isShown(isShownKey, docExpansion === "full" ),
       jumpToKey: `paths.${props.path}.${props.method}`,
       response: props.specSelectors.responseFor(props.path, props.method),

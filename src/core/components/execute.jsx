@@ -5,13 +5,26 @@ export default class Execute extends Component {
 
   static propTypes = {
     specSelectors: PropTypes.object.isRequired,
+    authSelectors: PropTypes.object.isRequired,
     specActions: PropTypes.object.isRequired,
+    authActions: PropTypes.object.isRequired,
     operation: PropTypes.object.isRequired,
     path: PropTypes.string.isRequired,
     method: PropTypes.string.isRequired,
     oas3Selectors: PropTypes.object.isRequired,
     oas3Actions: PropTypes.object.isRequired,
     onExecute: PropTypes.func
+  }
+
+  handleValidateAuthentication = () => {
+    const { operation, specSelectors, authSelectors, authActions } = this.props
+    const security = operation.getIn(["operation", "security"]) || specSelectors.security()
+    const isAuthorized = authSelectors.isAuthorized(security)
+    if(!isAuthorized) {
+      const applicableDefinitions = authSelectors.definitionsForRequirements(security)
+      authActions.showDefinitions(applicableDefinitions)
+    }
+    return isAuthorized
   }
 
   handleValidateParameters = () => {
@@ -24,7 +37,7 @@ export default class Execute extends Component {
     let { path, method, specSelectors, oas3Selectors, oas3Actions } = this.props
     let validationErrors = {
       missingBodyValue: false,
-      missingRequiredKeys: [] 
+      missingRequiredKeys: []
     }
     // context: reset errors, then (re)validate
     oas3Actions.clearRequestBodyValidateError({ path, method })
@@ -83,9 +96,10 @@ export default class Execute extends Component {
   }
 
   onClick = () => {
+    let authResults = this.handleValidateAuthentication()
     let paramsResult = this.handleValidateParameters()
     let requestBodyResult = this.handleValidateRequestBody()
-    let isPass = paramsResult && requestBodyResult
+    let isPass = paramsResult && requestBodyResult && authResults
     this.handleValidationResult(isPass)
   }
 

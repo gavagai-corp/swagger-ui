@@ -194,6 +194,8 @@ export default class Operation extends PureComponent {
                     operation={ operation }
                     specActions={ specActions }
                     specSelectors={ specSelectors }
+                    authSelectors={ authSelectors }
+                    authActions={ authActions }
                     oas3Selectors={ oas3Selectors }
                     oas3Actions={ oas3Actions }
                     path={ path }

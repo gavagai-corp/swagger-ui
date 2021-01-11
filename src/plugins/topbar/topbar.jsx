@@ -23,6 +23,10 @@ export default class Topbar extends React.Component {
     e.preventDefault()
   }
 
+  getCurrentUrl = () => {
+    return location.href.substr(location.href.indexOf("#"))
+  }
+
   render() {
     let { getComponent } = this.props
     const Button = getComponent("Button")
@@ -32,7 +36,7 @@ export default class Topbar extends React.Component {
       <div className="topbar">
         <div className="wrapper">
           <div className="topbar-wrapper">
-            <Link>
+            <Link href={ this.getCurrentUrl() }>
               <img height="50" src={ Logo } alt="Swagger UI"/>
             </Link>
             <div className="download-url-wrapper">

@@ -24,7 +24,7 @@ export default class Topbar extends React.Component {
   }
 
   getCurrentUrl = () => {
-    return window.location.href.replace(window.location.hash, "");
+    return window.location.href.replace(window.location.hash, "")
   }
 
   render() {

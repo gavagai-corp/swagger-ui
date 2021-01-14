@@ -20,7 +20,7 @@
     border-radius: 4px;
     background: rgba($info-code-background-color,.05);
 
-    @include text_code($info-code-font-color);
+    @include text_code();
   }
 
   pre > code {
